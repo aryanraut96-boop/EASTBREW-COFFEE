@@ -1,0 +1,650 @@
+/* ==========================================================================
+   CSS VARIABLES & DESIGN SYSTEM
+   ========================================================================== */
+:root {
+  --primary-color: #3E2723;   /* Espresso Brown */
+  --bg-cream: #F5EBDD;        /* Light Cream Background */
+  --accent-gold: #C8A27A;     /* Warm Gold Accent */
+  --text-dark: #2C1D18;       /* Deep Charcoal Brown */
+  --text-light: #705D55;      /* Muted Brown */
+  --white: #FFFFFF;
+  --overlay-dark: rgba(30, 18, 15, 0.65);
+  
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --transition-fast: 0.25s ease;
+  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --box-shadow: 0 10px 30px rgba(62, 39, 35, 0.08);
+  --border-radius: 12px;
+}
+
+/* ==========================================================================
+   BASE & RESET STYLES
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-cream);
+  color: var(--text-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  color: var(--primary-color);
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-fast);
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Utility Layout Classes */
+.container {
+  width: 90%;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title span {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent-gold);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.section-title h2 {
+  font-size: 2.25rem;
+}
+
+.section-title--left {
+  text-align: left;
+}
+
+/* Button System */
+.btn {
+  display: inline-block;
+  padding: 0.85rem 1.75rem;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  border: 2px solid transparent;
+}
+
+.btn--primary {
+  background-color: var(--accent-gold);
+  color: var(--white);
+}
+
+.btn--primary:hover {
+  background-color: #B58F67;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(200, 162, 122, 0.35);
+}
+
+.btn--outline {
+  border-color: var(--white);
+  color: var(--white);
+}
+
+.btn--outline:hover {
+  background-color: var(--white);
+  color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   1. STICKY HEADER & NAV
+   ========================================================================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: var(--transition-smooth);
+  padding: 1.25rem 0;
+}
+
+.header.scrolled {
+  background-color: rgba(245, 235, 221, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 0.85rem 0;
+  box-shadow: var(--box-shadow);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 1px;
+}
+
+.header.scrolled .nav__logo {
+  color: var(--primary-color);
+}
+
+.nav__logo span {
+  color: var(--accent-gold);
+}
+
+.nav__menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav__list {
+  display: flex;
+  gap: 1.75rem;
+}
+
+.nav__link {
+  color: var(--white);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.header.scrolled .nav__link {
+  color: var(--text-dark);
+}
+
+.nav__link:hover {
+  color: var(--accent-gold) !important;
+}
+
+/* Mobile Toggle */
+.nav__toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.nav__toggle .bar {
+  width: 25px;
+  height: 3px;
+  background-color: var(--white);
+  border-radius: 2px;
+  transition: var(--transition-fast);
+}
+
+.header.scrolled .nav__toggle .bar {
+  background-color: var(--primary-color);
+}
+
+/* ==========================================================================
+   2. HERO SECTION
+   ========================================================================== */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  background: url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80&w=1920') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+.hero__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--overlay-dark);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  color: var(--white);
+  max-width: 650px;
+}
+
+.hero__title {
+  color: var(--white);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 1rem;
+}
+
+.hero__tagline {
+  font-size: 1.15rem;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.hero__buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   3. ABOUT SECTION
+   ========================================================================== */
+.about__text {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 3.5rem;
+  font-size: 1.1rem;
+  color: var(--text-light);
+}
+
+.about__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.about__card {
+  background: var(--white);
+  padding: 2.5rem 2rem;
+  border-radius: var(--border-radius);
+  text-align: center;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition-smooth);
+}
+
+.about__card:hover {
+  transform: translateY(-5px);
+}
+
+.about__icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.about__card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.about__card p {
+  font-size: 0.95rem;
+  color: var(--text-light);
+}
+
+/* ==========================================================================
+   4. MENU SECTION
+   ========================================================================== */
+.menu__tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.menu__tab {
+  padding: 0.6rem 1.5rem;
+  background: transparent;
+  border: 1.5px solid var(--primary-color);
+  border-radius: 30px;
+  color: var(--primary-color);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.menu__tab.active,
+.menu__tab:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.menu__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.menu__card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition-smooth);
+}
+
+.menu__card.hide {
+  display: none;
+}
+
+.menu__card:hover {
+  transform: translateY(-5px);
+}
+
+.menu__img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: var(--transition-smooth);
+}
+
+.menu__card:hover .menu__img {
+  transform: scale(1.04);
+}
+
+.menu__details {
+  padding: 1.5rem;
+}
+
+.menu__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+
+.menu__item-title {
+  font-size: 1.15rem;
+}
+
+.menu__price {
+  font-weight: 600;
+  color: var(--accent-gold);
+}
+
+.menu__desc {
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+/* ==========================================================================
+   5. GALLERY & LIGHTBOX
+   ========================================================================== */
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+.gallery__item {
+  position: relative;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  cursor: pointer;
+  height: 240px;
+}
+
+.gallery__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-smooth);
+}
+
+.gallery__item:hover img {
+  transform: scale(1.08);
+}
+
+/* Lightbox Modal */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.88);
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox__img {
+  max-width: 85%;
+  max-height: 85%;
+  border-radius: 8px;
+}
+
+.lightbox__close {
+  position: absolute;
+  top: 2rem;
+  right: 2.5rem;
+  font-size: 2.5rem;
+  color: var(--white);
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   6. TESTIMONIALS
+   ========================================================================== */
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.testimonial__card {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.testimonial__stars {
+  color: #F5A623;
+  margin-bottom: 1rem;
+}
+
+.testimonial__quote {
+  font-style: italic;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-dark);
+}
+
+.testimonial__author h4 {
+  font-size: 1rem;
+}
+
+.testimonial__author span {
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+/* ==========================================================================
+   7. LOCATION & OPENING HOURS
+   ========================================================================== */
+.location__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  background: var(--white);
+  padding: 3rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.location__address,
+.location__phone {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.hours__table {
+  margin: 1.5rem 0 2rem;
+}
+
+.hours__table h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.hours__table ul li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed #E0D4C3;
+  font-size: 0.95rem;
+}
+
+.location__map {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  min-height: 320px;
+}
+
+/* ==========================================================================
+   8. FOOTER
+   ========================================================================== */
+.footer {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 3rem 0 1.5rem;
+}
+
+.footer__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer__logo {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.footer__logo span {
+  color: var(--accent-gold);
+}
+
+.footer__socials {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer__socials a {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+}
+
+.footer__socials a:hover {
+  color: var(--accent-gold);
+}
+
+.footer__bottom {
+  text-align: center;
+  padding-top: 1.5rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ==========================================================================
+   ANIMATIONS & SCROLL REVEAL
+   ========================================================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (MOBILE & TABLET)
+   ========================================================================== */
+@media (max-width: 900px) {
+  .location__wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav__toggle {
+    display: flex;
+  }
+
+  .nav__menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 75%;
+    height: 100vh;
+    background-color: var(--primary-color);
+    flex-direction: column;
+    justify-content: center;
+    transition: var(--transition-smooth);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .nav__menu.active {
+    right: 0;
+  }
+
+  .nav__list {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .nav__link {
+    font-size: 1.2rem;
+    color: var(--white) !important;
+  }
+
+  .nav__btn {
+    margin-top: 1rem;
+  }
+}
