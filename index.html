@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="EASTBREW coffee - Itahari's premier specialty coffee shop, fresh bites, and cozy workspace.">
+  <title>EASTBREW coffee | Itahari</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 1. STICKY NAVIGATION -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#" class="nav__logo">EASTBREW<span>.</span></a>
+      
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+          <li class="nav__item"><a href="#menu" class="nav__link">Menu</a></li>
+          <li class="nav__item"><a href="#gallery" class="nav__link">Gallery</a></li>
+          <li class="nav__item"><a href="#location" class="nav__link">Hours & Location</a></li>
+        </ul>
+        <a href="https://wa.me/[TODO_WHATSAPP_NUMBER]?text=Hi%20EASTBREW,%20I'd%20like%20to%20reserve%20a%20table." target="_blank" class="btn btn--primary nav__btn">Reserve Table</a>
+      </div>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle Navigation Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 2. FULL-SCREEN HERO -->
+    <section class="hero" id="hero">
+      <div class="hero__overlay"></div>
+      <div class="hero__content container">
+        <h1 class="hero__title reveal">Crafted Coffee.<br>Warm Moments.</h1>
+        <p class="hero__tagline reveal">Itahari's cozy spot for specialty espresso, artisanal pastries, and quiet work sessions.</p>
+        <div class="hero__buttons reveal">
+          <a href="#menu" class="btn btn--outline">View Menu</a>
+          <a href="https://wa.me/[TODO_WHATSAPP_NUMBER]?text=Hi%20EASTBREW,%20I'd%20like%20to%20reserve%20a%20table." target="_blank" class="btn btn--primary">Reserve on WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. ABOUT SECTION -->
+    <section class="about section" id="about">
+      <div class="container">
+        <div class="about__header section-title reveal">
+          <span>Our Story</span>
+          <h2>A Passion for Exceptional Brews</h2>
+        </div>
+        
+        <p class="about__text reveal">
+          [TODO: Insert short 2-3 sentence brand narrative here. E.g., Located in the heart of Itahari, EASTBREW coffee was founded with a single mission: to bring fresh, locally-sourced specialty coffee to our community in a serene, modern space.]
+        </p>
+
+        <div class="about__grid">
+          <div class="about__card reveal">
+            <div class="about__icon">☕</div>
+            <h3>Specialty Coffee</h3>
+            <p>100% single-origin Himalayan Arabica beans, roasted fresh and brewed with mathematical precision.</p>
+          </div>
+
+          <div class="about__card reveal">
+            <div class="about__icon">🌿</div>
+            <h3>Cozy Atmosphere</h3>
+            <p>Thoughtfully designed warm interior with indoor plants, soft acoustics, and comfortable seating.</p>
+          </div>
+
+          <div class="about__card reveal">
+            <div class="about__icon">⚡</div>
+            <h3>High-Speed WiFi</h3>
+            <p>Dedicated fiber connection with ample power outlets, perfect for students and remote professionals.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. MENU SECTION -->
+    <section class="menu section" id="menu">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>Freshly Prepared</span>
+          <h2>Explore Our Menu</h2>
+        </div>
+
+        <!-- Category Filter Tabs -->
+        <div class="menu__tabs reveal">
+          <button class="menu__tab active" data-category="coffee">Coffee & Beverages</button>
+          <button class="menu__tab" data-category="food">Fresh Food</button>
+          <button class="menu__tab" data-category="desserts">Desserts & Pastries</button>
+        </div>
+
+        <!-- Menu Grid -->
+        <div class="menu__grid">
+          <!-- Coffee Items -->
+          <article class="menu__card reveal" data-category="coffee">
+            <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&q=80&w=600" alt="Espresso at EASTBREW" class="menu__img" loading="lazy">
+            <div class="menu__details">
+              <div class="menu__header">
+                <h3 class="menu__item-title">[TODO: Espresso Single/Double]</h3>
+                <span class="menu__price">NPR [TODO: 150]</span>
+              </div>
+              <p class="menu__desc">[TODO: Rich Himalayan espresso shot with cream caramel notes.]</p>
+            </div>
+          </article>
+
+          <article class="menu__card reveal" data-category="coffee">
+            <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&q=80&w=600" alt="Caffe Latte at EASTBREW" class="menu__img" loading="lazy">
+            <div class="menu__details">
+              <div class="menu__header">
+                <h3 class="menu__item-title">[TODO: Signature Caffe Latte]</h3>
+                <span class="menu__price">NPR [TODO: 240]</span>
+              </div>
+              <p class="menu__desc">[TODO: Smooth espresso topped with micro-foamed steamed milk.]</p>
+            </div>
+          </article>
+
+          <!-- Food Items -->
+          <article class="menu__card reveal hide" data-category="food">
+            <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&q=80&w=600" alt="Avocado Toast at EASTBREW" class="menu__img" loading="lazy">
+            <div class="menu__details">
+              <div class="menu__header">
+                <h3 class="menu__item-title">[TODO: Sourdough Toast]</h3>
+                <span class="menu__price">NPR [TODO: 350]</span>
+              </div>
+              <p class="menu__desc">[TODO: Artisanal toasted bread served with fresh toppings and herbs.]</p>
+            </div>
+          </article>
+
+          <!-- Dessert Items -->
+          <article class="menu__card reveal hide" data-category="desserts">
+            <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&q=80&w=600" alt="Cheesecake at EASTBREW" class="menu__img" loading="lazy">
+            <div class="menu__details">
+              <div class="menu__header">
+                <h3 class="menu__item-title">[TODO: Classic Cheesecake]</h3>
+                <span class="menu__price">NPR [TODO: 280]</span>
+              </div>
+              <p class="menu__desc">[TODO: Rich baked cheesecake served with fresh berry drizzle.]</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. GALLERY SECTION -->
+    <section class="gallery section" id="gallery">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>Visual Vibe</span>
+          <h2>Life at EASTBREW</h2>
+        </div>
+
+        <div class="gallery__grid">
+          <div class="gallery__item reveal">
+            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80&w=800" alt="Cafe Seating Interior" loading="lazy">
+          </div>
+          <div class="gallery__item reveal">
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=800" alt="Coffee Pouring Barista" loading="lazy">
+          </div>
+          <div class="gallery__item reveal">
+            <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&q=80&w=800" alt="Coffee Cup Detail" loading="lazy">
+          </div>
+          <div class="gallery__item reveal">
+            <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&q=80&w=800" alt="Friends laughing in cafe" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+      <span class="lightbox__close" id="lightbox-close">&times;</span>
+      <img src="" alt="Enlarged view" class="lightbox__img" id="lightbox-img">
+    </div>
+
+    <!-- 6. TESTIMONIALS SECTION -->
+    <section class="testimonials section">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>Customer Feedback</span>
+          <h2>What People Say</h2>
+        </div>
+
+        <div class="testimonials__grid">
+          <div class="testimonial__card reveal">
+            <div class="testimonial__stars">★★★★★</div>
+            <p class="testimonial__quote">"[TODO: Best coffee spot in Itahari. Quiet atmosphere, high speed internet, and excellent latte art.]"</p>
+            <div class="testimonial__author">
+              <h4>[TODO: Rohan Shrestha]</h4>
+              <span>[TODO: Local Student]</span>
+            </div>
+          </div>
+
+          <div class="testimonial__card reveal">
+            <div class="testimonial__stars">★★★★★</div>
+            <p class="testimonial__quote">"[TODO: A cozy gem in town. Great food options and super friendly staff. Will definitely return!]"</p>
+            <div class="testimonial__author">
+              <h4>[TODO: Sarita Rai]</h4>
+              <span>[TODO: Remote Worker]</span>
+            </div>
+          </div>
+
+          <div class="testimonial__card reveal">
+            <div class="testimonial__stars">★★★★★</div>
+            <p class="testimonial__quote">"[TODO: High-quality specialty espresso and clean modern space. Highly recommended for travelers.]"</p>
+            <div class="testimonial__author">
+              <h4>[TODO: Alex M.]</h4>
+              <span>[TODO: Traveler]</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. OPENING HOURS & LOCATION -->
+    <section class="location section" id="location">
+      <div class="container">
+        <div class="location__wrapper">
+          <div class="location__info reveal">
+            <div class="section-title section-title--left">
+              <span>Visit Us</span>
+              <h2>Opening Hours & Location</h2>
+            </div>
+            
+            <p class="location__address">📍 [TODO: Exact Street Address, Near Main Chowk, Itahari, Nepal]</p>
+            <p class="location__phone">📞 WhatsApp / Call: [TODO: +977 9800000000]</p>
+
+            <div class="hours__table">
+              <h3>Opening Hours</h3>
+              <ul>
+                <li><span>Monday – Friday:</span> <span>[TODO: 7:00 AM – 8:30 PM]</span></li>
+                <li><span>Saturday:</span> <span>[TODO: 8:00 AM – 9:00 PM]</span></li>
+                <li><span>Sunday:</span> <span>[TODO: 7:00 AM – 8:30 PM]</span></li>
+              </ul>
+            </div>
+
+            <a href="https://maps.google.com/?q=[TODO_LOCATION_COORDINATES]" target="_blank" class="btn btn--primary">Get Directions on Maps</a>
+          </div>
+
+          <!-- Google Maps Embed -->
+          <div class="location__map reveal">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3568.219086154084!2d87.2798!3d26.6644!2m3!1f0!1f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjYsNDMnNTEuOCJOIDg3wrAxNic0Ny4zIkU!5e0!3m2!1sen!2snp!4v1620000000000!5m2!1sen!2snp" 
+              width="100%" 
+              height="100%" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              title="EASTBREW coffee Google Maps Location">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 8. FOOTER -->
+  <footer class="footer">
+    <div class="container footer__container">
+      <div class="footer__brand">
+        <a href="#" class="footer__logo">EASTBREW<span>.</span></a>
+        <p>Crafted coffee & cozy atmosphere in Itahari.</p>
+      </div>
+
+      <div class="footer__socials">
+        <a href="https://instagram.com/[TODO_INSTAGRAM_HANDLE]" target="_blank" aria-label="Instagram">Instagram</a>
+        <a href="https://facebook.com/[TODO_FACEBOOK_HANDLE]" target="_blank" aria-label="Facebook">Facebook</a>
+        <a href="https://tiktok.com/@[TODO_TIKTOK_HANDLE]" target="_blank" aria-label="TikTok">TikTok</a>
+        <a href="https://wa.me/[TODO_WHATSAPP_NUMBER]" target="_blank" aria-label="WhatsApp">WhatsApp</a>
+      </div>
+    </div>
+    
+    <div class="footer__bottom container">
+      <p>&copy; 2026 EASTBREW coffee. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
